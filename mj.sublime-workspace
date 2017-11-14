@@ -1,0 +1,587 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"headin",
+				"heading--big"
+			],
+			[
+				"font",
+				"font-smoothing"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"in",
+				"inherit"
+			],
+			[
+				"nth",
+				"nth-of-type"
+			],
+			[
+				"ty",
+				"type-position"
+			],
+			[
+				"prim",
+				"primary-font-4"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"color",
+				"color-8"
+			],
+			[
+				"heading",
+				"heading--small"
+			],
+			[
+				"inlin",
+				"inline"
+			],
+			[
+				"ine",
+				"inherit"
+			],
+			[
+				"ini",
+				"inline"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"row--",
+				"row--full"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"prima",
+				"primary-font-10"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"background",
+				"background-size"
+			],
+			[
+				"primar",
+				"primary-font-8"
+			],
+			[
+				"tex",
+				"text-transform"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"lig",
+				"lighten"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"color-",
+				"color-4"
+			],
+			[
+				"gur",
+				"Guarantee"
+			],
+			[
+				"L",
+				"L"
+			],
+			[
+				"blo",
+				"blockquote"
+			],
+			[
+				"fon",
+				"font-smoothing"
+			],
+			[
+				"pri",
+				"primary-font-2"
+			],
+			[
+				"coo",
+				"color-4"
+			],
+			[
+				"pro",
+				"primary-font-2"
+			],
+			[
+				"bakcgoun",
+				"background-color"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"colo",
+				"color-2"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"header",
+				"header--bg"
+			],
+			[
+				"box",
+				"box-shadow"
+			],
+			[
+				"a",
+				"absolute"
+			],
+			[
+				"paddi",
+				"padding-top"
+			],
+			[
+				"pr",
+				"primary-font-4"
+			],
+			[
+				"line",
+				"line-height"
+			],
+			[
+				"btn",
+				"btn--full"
+			],
+			[
+				"u",
+				"uppercase"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"cu",
+				"cursor"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Snippet: html"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 471.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/marsh/Sites/mickey-jenny.myshopify.com"
+	],
+	"file_history":
+	[
+		"/Users/marsh/Sites/mickey-jenny.myshopify.com/assets/theme.scss.liquid",
+		"/Users/marsh/Sites/mickey-jenny.myshopify.com/sections/feature-footer.liquid",
+		"/Users/marsh/Sites/mickey-jenny.myshopify.com/snippets/search-form.liquid",
+		"/Users/marsh/Sites/mickey-jenny.myshopify.com/snippets/icon-input-arrow.liquid",
+		"/Users/marsh/Sites/mickey-jenny.myshopify.com/snippets/icon-search.liquid",
+		"/Users/marsh/Sites/mickey-jenny.myshopify.com/assets/theme.js",
+		"/Users/marsh/Sites/mickey-jenny.myshopify.com/sections/footer.liquid",
+		"/Users/marsh/Sites/mickey-jenny.myshopify.com/config/settings_schema.json",
+		"/Users/marsh/Sites/mickey-jenny.myshopify.com/connect.txt",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/assets/theme.scss.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/theme.lock",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/layout/theme.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/assets/theme.js",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/templates/index.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/sections/collection-list.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/snippets/collection-grid-item.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/assets/vendor.js",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/sections/slideshow.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/snippets/bgset.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/config/settings_schema.json",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/sections/custom-content.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/sections/header.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/snippets/site-nav.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/snippets/search-form.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/snippets/social-meta-tags.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/config/settings_data.json",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/.gitignore",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/sections/footer.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/snippets/icon-logo.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/snippets/icon-search.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/assets/logo.svg",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/snippets/icon-cart.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/assets/icon-search.svg",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/assets/font.scss.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/snippets/google-fonts.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/templates/page.story.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/sections/collection-template.liquid",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/config.yml",
+		"/Users/marsh/Sites/mickeyandjennydev.myshopify.com/connect.txxt",
+		"/Users/marsh/Downloads/update-notification/email-mega-millions-update-notification.html",
+		"/Users/marsh/Downloads/update-notification 2/update-notification.html",
+		"/Users/marsh/Downloads/change-notification/change-notification.html",
+		"/Users/marsh/Library/Caches/Cleanup At Startup/Transmit/469ECADB-DC4A-4705-8E74-681C49F5F9A9/index.php",
+		"/Users/marsh/Dropbox/Working/lg/Misc/Docs/USP's.txt",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/inc-pixels.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/chart.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/contact.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/experience.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/free-gift-all-set.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/index.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/manifesto.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/newsletter-almost-there.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/ouibounce.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/page.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/testimonials.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/alecia-evans.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/inc-footer2.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/pixels.php",
+		"/Users/marsh/Dropbox/Sites/walk-in-sync/site/scss/style.scss",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/home-study-store.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/inc-footer2.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/inc-nav2.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/.htaccess",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/js/main.js",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/scss/style.scss",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/partials/_variables.scss",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/partials/_layout.scss",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/.gitignore",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/index.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/ouibounce.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/confirmed.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/newsletter-confirmation.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/all-set.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/mailchimp.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/page.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/contact.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/js/plugins.js",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/experience.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/testimonials.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/manifesto.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/alecia-evans.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/chart.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/js/vendor/ajaxchimp.min.js",
+		"/Users/marsh/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/config.codekit",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/inc-footer.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/img/dog.svg",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/img/dog-2.svg",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/img/cart.svg",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/inc-nav.php",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/partials/_extends.scss",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/img/logo.svg",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/font/font.css",
+		"/Applications/MAMP/htdocs/walk-in-sync/wis.sublime-project",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/img/logo-brown.svg",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/css/style.css",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/index-bkup.html",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/index.html",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/img/book.svg",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/img/collar.svg",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/img/report-card-top.svg",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/partials/_mixins.scss",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/js/vendor/owl.carousel.min.js",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/font/font-awesome.min.css",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/js/script.js",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/styles/main.scss",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/scss/nav.scss",
+		"/Applications/MAMP/htdocs/walk-in-sync/site/css/reset.css",
+		"/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
+		"/Applications/MAMP/conf/apache/httpd.conf",
+		"/Applications/MAMP/htdocs/expandable-image-gallery/index.html",
+		"/Applications/MAMP/htdocs/expandable-image-gallery/js/main.js",
+		"/Applications/MAMP/htdocs/lg-staging/lotogopher-site/frontend/application/config/routes.php",
+		"/Applications/MAMP/htdocs/lg-staging/lotogopher-site/frontend/application/controllers/user.php",
+		"/Applications/MAMP/htdocs/lg-staging/lotogopher-site/frontend/application/views/pages/user/update_billing.php",
+		"/Applications/MAMP/htdocs/lg-staging/lotogopher-site/frontend/application/views/pages/ecomm/checkout.php",
+		"/Applications/MAMP/htdocs/lg-staging/lotogopher-site/frontend/application/views/pages/user/billing.php",
+		"/Applications/MAMP/htdocs/lg-staging/lotogopher-site/frontend/application/controllers/order.php",
+		"/Applications/MAMP/htdocs/lg-staging/lotogopher-site/frontend/application/views/pages/ecomm/upgrade.php",
+		"/private/etc/hosts",
+		"/Volumes/Macintosh HD-1/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf",
+		"/Users/marsh/Downloads/html5 templates/PSDKEYS.COM_Sumava_–_HTML5_template_324315/Template--Sumava/manifest.json",
+		"/Users/marsh/Desktop/Marine/font.css",
+		"/Applications/MAMP/htdocs/lg-staging/lotogopher-site/frontend/application/views/partials/footer.php",
+		"/Applications/MAMP/htdocs/lg-staging/lotogopher-site/frontend/application/views/pages/user/alerts.php",
+		"/Users/marsh/Dropbox/Portfolio/LottoGopher/Go to www.lottogopher.com to view website.html",
+		"/Users/marsh/Dropbox/Portfolio/Walk In Sync/Go to www.walkinsync.com to view website.html",
+		"/Users/marsh/Dropbox/Working/a/archive27/index.html"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".site-footer__linklist, .site-footer__newsletter",
+			".rte-setting",
+			"radius",
+			"full",
+			"push",
+			"grid",
+			"grid-breakpoint-has-push",
+			"push",
+			"$color-body-text",
+			"color",
+			"border-bottom: 1px solid",
+			"input[type=\"email\"]",
+			"prev",
+			"$small",
+			"small",
+			"grid-breakpoint-type",
+			"hide",
+			"small--hide",
+			"prev",
+			"asset",
+			"prev",
+			"background",
+			"prev",
+			"footer_newsletter_enable",
+			"powered_by_link",
+			"language",
+			"power",
+			"powered_by_link"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "mj.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"search-form",
+				"snippets/search-form.liquid"
+			],
+			[
+				"site",
+				"snippets/site-nav.liquid"
+			],
+			[
+				"site-nav",
+				"snippets/site-nav.liquid"
+			],
+			[
+				"google-fonts",
+				"snippets/google-fonts.liquid"
+			],
+			[
+				"cust",
+				"js/custom.js"
+			],
+			[
+				"cus",
+				"js/custom.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 278.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
