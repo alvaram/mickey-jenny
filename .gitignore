@@ -3,4 +3,5 @@ config.yml
 
 connect.txt
 mj.sublime-project
+mj.sublime-workspace
 theme.lock
