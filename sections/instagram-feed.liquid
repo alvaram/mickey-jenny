@@ -1,0 +1,50 @@
+<div class="page-width">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h1 class="h3">{{ section.settings.title | escape }}</h1>
+      <h2 class="h4">{{ section.settings.sub-title | escape }}&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://www.instagram.com/mickeyandjenny/" target="_blank" class="insta-view-all">VIEW ALL</a></h2>
+    </div>
+  {% endif %}
+
+ 
+  <div class="grid">
+
+      <div class="grid__item medium-up--one-whole" {{ block.shopify_attributes }}>
+        
+         <div id="insta-feed"></div>
+        {% if block.settings.title != blank %}
+          <h3 class="h4 about-us-sub-header">{{ block.settings.title | escape }}</h3>
+        {% endif %}
+      
+    </div>
+
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Instagram Feed",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Instagram Feed"
+      },
+      {
+        "type": "text",
+        "id": "sub-title",
+        "label": "Sub-Heading",
+        "default": "Custom content"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Instagram Feed",
+        "category": "Advanced layout"
+      }
+    ]
+  }
+{% endschema %}
