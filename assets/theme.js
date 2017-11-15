@@ -2668,6 +2668,9 @@ theme.Product = (function() {
       var variant = evt.variant;
 
       if (variant) {
+        for (var i=0,length=variant.options.length; i<length; i++) {
+          $('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+        }
         $(this.selectors.productPrices)
           .removeClass('visibility-hidden')
           .attr('aria-hidden', 'true');
@@ -2966,7 +2969,7 @@ $(theme.init);
 
 
 // Custom JS
-$( ".site-nav li" ).eq(6).addClass( "logo" );
+$( ".site-nav li a[href='/']" ).parent('li').addClass( "logo" );
 $( ".mobile-nav li" ).eq(7).addClass( "small--hide" );
 
 $('.collection-slider-for').slick({
@@ -2990,11 +2993,11 @@ $('.collection-slider-for').slick({
    ]
 });
 $('.slider-for').slick({
-  dots: true,
-  infinite: false,
+  infinite: true,
   speed: 300,
-  slidesToShow: 4,
-  slidesToScroll: 4,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  asNavFor: '.slider-nav',
   responsive: [
     {
       breakpoint: 1024,
@@ -3025,14 +3028,25 @@ $('.slider-for').slick({
   ]
 });
 $('.slider-nav').slick({
-   slidesToShow: 3,
+   slidesToShow: 4,
    slidesToScroll: 1,
+   arrows: false,
    asNavFor: '.slider-for',
-   dots: true,
-   focusOnSelect: true
+   focusOnSelect: true,
+   vertical: true,
+   verticalSwiping: true
 });
-$('a[data-slide]').click(function(e) {
-   e.preventDefault();
-   var slideno = $(this).data('slide');
-   $('.slider-nav').slick('slickGoTo', slideno - 1);
+// $('#get-slider-thumbnails-container').css({'height': $('#get-slider-container').height(),'overflow':'hidden'});
+
+jQuery(function() {
+  jQuery('.swatch :radio').change(function() {
+    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+    var optionValue = jQuery(this).val();
+    jQuery(this)
+      .closest('form')
+      .find('.single-option-selector')
+      .eq(optionIndex)
+      .val(optionValue)
+      .trigger('change');
+  });
 });

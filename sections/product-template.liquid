@@ -1,3 +1,17 @@
+<div class="grid page-width">
+<div class="grid__item text-center prev-next-container">
+{% if collection.previous_product %}
+   <a href="{{ collection.previous_product }}" title="{{ product.title | escape }}">Previous Style</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+   {% else %}
+   <span>Previous Style</span>&nbsp;&nbsp; | &nbsp;&nbsp;
+{% endif %}
+{% if collection.next_product %}
+    <a href="{{ collection.next_product }}" title="{{ product.title | escape }}">Next Style</a>
+    {% else %}
+    <span>Next Style</span>
+{% endif %}
+</div>
+</div>
 <div class="product-template__container page-width" itemscope itemtype="http://schema.org/Product" id="ProductSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true">
   <meta itemprop="name" content="{{ product.title }}">
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -14,7 +28,7 @@
   {% case section.settings.image_size %}
     {% when 'small' %}
       {%- assign product_image_width = 'medium-up--one-third' -%}
-      {%- assign product_description_width = 'medium-up--two-thirds' -%}
+      {%- assign product_description_width = 'medium-up--one-third' -%}
       {%- assign product_thumbnail_width = 'medium-up--one-third' -%}
       {%- assign height = 345 -%}
     {% when 'medium' %}
@@ -36,7 +50,8 @@
   {% endcase %}
 
   <div class="grid product-single">
-    <div class="grid__item product-single__photos {{ product_image_width }}{% if section.settings.image_size == 'full' %} product-single__photos--full{% endif %}">
+
+    <div id="get-slider-container" class="grid__item product-single__photos medium-up--four-sixths slider-for">
       {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
       {% for image in product.images %}
         {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
@@ -44,13 +59,9 @@
         {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %}
         {% capture img_wrapper_id %}{{ zoom_img_id }}-wrapper{% endcapture %}
         {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
-        {% include 'image-style' with small_style: true, width: height, height: height, wrapper_id: img_wrapper_id, img_id: img_id %}
-
-        <div id="{{ img_wrapper_id }}" class="product-single__photo-wrapper js">
-          <div id="{{ zoom_img_id }}" style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;" class="product-single__photo{% if enable_zoom %} js-zoom-enabled{% endif %}{% if product.images.size > 1 %} product-single__photo--has-thumbnails{% endif %}{% unless featured_image == image %} hide{% endunless %}" data-image-id="{{ image.id }}"{% if enable_zoom %} data-zoom="{{ image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-            <img id="{{ img_id }}"
-                 class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
+        
+          <div class="product-single__photo">
+            <img class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
                  src="{{ image | img_url: '300x300' }}"
                  data-src="{{ img_url }}"
                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
@@ -58,52 +69,29 @@
                  data-sizes="auto"
                  alt="{{ image.alt | escape }}">
           </div>
-        </div>
       {% endfor %}
+    </div>
 
-      <noscript>
-        {% capture product_image_size %}{{ height }}x{% endcapture %}
-        <img src="{{ featured_image | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_image.alt }}" id="FeaturedImage-{{ section.id }}" class="product-featured-img" style="max-width: {{ height }}px;">
-      </noscript>
+    <div class="grid__item medium-up--one-sixth slider-thumbnails-container">
+    {% if product.images.size > 1 %}
 
-      {% if product.images.size > 1 %}
-        {% if product.images.size > 3 %}
-          {%- assign enable_thumbnail_slides = true -%}
-        {% endif %}
+        <div class="product-single__thumbnails thumbnails-wrapper slider-nav">
 
-        <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
-          {% if enable_thumbnail_slides == true %}
-            <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
-              {% include 'icon-chevron-left' %}
-              <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
-            </button>
-          {% endif %}
-          <ul class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
             {% for image in product.images %}
-              <li class="grid__item {{ product_thumbnail_width }} product-single__thumbnails-item js">
-                <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
-                   class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
-                   data-thumbnail-id="{{ image.id }}"
-                   {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-                     <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ image.alt | escape }}">
-                </a>
-              </li>
+              <div class="product-single__thumbnails-item js">
+                  <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ image.alt | escape }}">
+              </div>
             {% endfor %}
-          </ul>
-          {% if enable_thumbnail_slides == true %}
-            <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
-              {% include 'icon-chevron-right' %}
-              <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
-            </button>
-          {% endif %}
+
         </div>
       {% endif %}
     </div>
 
-    <div class="grid__item {{ product_description_width }}">
+    <div class="grid__item medium-up--one-sixth product-single-container">
       <div class="product-single__meta">
 
-        <h1 itemprop="name" class="product-single__title">{{ product.title }}</h1>
+        <h2 itemprop="name" class="h4 product-single__title-collection">{{ product.type }},</h2>
+        <h1 itemprop="name" class="h3 product-single__title">{{ product.title }}</h1>
 
         {% if section.settings.show_vendor %}
           <p itemprop="brand" class="product-single__vendor">{{ product.vendor }}</p>
@@ -119,7 +107,8 @@
                 <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
                 <s id="ComparePrice-{{ section.id }}">{{ current_variant.compare_at_price | money }}</s>
                 <span class="product-price__price product-price__price-{{ section.id }} product-price__sale product-price__sale--single">
-                  <span id="ProductPrice-{{ section.id }}"
+                  <span class="product-price__price-label">Price</span>
+                  <span class="product-price__price-tag" id="ProductPrice-{{ section.id }}"
                     itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
                     {{ current_variant.price | money }}
                   </span>
@@ -129,7 +118,8 @@
               <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
               <s id="ComparePrice-{{ section.id }}" class="hide">{{ current_variant.compare_at_price | money }}</s>
               <span class="product-price__price product-price__price-{{ section.id }}">
-                <span id="ProductPrice-{{ section.id }}"
+                <span class="product-price__price-label">Price</span>
+                <span class="product-price__price-tag" id="ProductPrice-{{ section.id }}"
                   itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
                   {{ current_variant.price | money }}
                 </span>
@@ -137,6 +127,10 @@
               </span>
             {% endif %}
           </p>
+
+          {% if product.available and product.variants.size > 1 %}
+           {% include 'swatch' with 'Colors' %}
+          {% endif %}
 
           <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
             {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
@@ -188,26 +182,23 @@
 
         </div>
 
-        <div class="product-single__description rte" itemprop="description">
-          {{ product.description }}
-        </div>
-
         {% if section.settings.show_share_buttons %}
           {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
         {% endif %}
       </div>
     </div>
+
   </div>
 </div>
 
-{% if collection %}
-  <div class="text-center return-link-wrapper">
-    <a href="{{ collection.url }}" class="btn btn--secondary btn--has-icon-before return-link">
-      {% include 'icon-arrow-left' %}
-      {{ 'products.product.back_to_collection' | t: title: collection.title }}
-    </a>
+<div class="grid page-width">
+  <div class="grid__item medium-up--six-eighths">
+    <div class="product-single__description rte" itemprop="description">
+      {{ product.description }}
+    </div>
   </div>
-{% endif %}
+</div>
+
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
