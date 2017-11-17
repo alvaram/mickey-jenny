@@ -128,12 +128,17 @@
             {% endif %}
           </p>
 
-          <!-- {% if product.available and product.variants.size > 1 %}
-           {% include 'swatch' with 'Colors' %}
-          {% endif %} -->
+          
 
           <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
-            {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
+
+            {% if product.available and product.variants.size > 1 %}
+              {% for option in product.options %}
+                {% include 'swatch' with option %}
+              {% endfor %}
+            {% endif %}
+
+            <!-- {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
               {% for option in product.options_with_values %}
                 <div class="selector-wrapper js product-form__item">
                   <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
@@ -146,7 +151,7 @@
                   </select>
                 </div>
               {% endfor %}
-            {% endunless %}
+            {% endunless %} -->
 
             <select name="id" id="ProductSelect-{{ section.id }}" data-section="{{ section.id }}" class="product-form__variants no-js">
               {% for variant in product.variants %}

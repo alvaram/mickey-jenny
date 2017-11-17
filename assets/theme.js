@@ -3033,7 +3033,7 @@ $('.slider-for').slick({
 $('.slider-nav').slick({
    slidesToShow: 4,
    slidesToScroll: 1,
-   arrows: false,
+   arrows: true,
    asNavFor: '.slider-for',
    focusOnSelect: true,
    vertical: true,

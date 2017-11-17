@@ -649,6 +649,11 @@ $slick-opacity-not-active: 0.25;
       content: $slick-next-character;
     }
   }
+  .slider-nav & {
+    top: 101%;
+    left: 40%;
+    transform: rotate(-90deg);
+  }
 }
 
 .slick-next {
@@ -656,6 +661,11 @@ $slick-opacity-not-active: 0.25;
   [dir="rtl"] & {
     left: -25px;
     right: auto;
+  }
+  .slider-nav & {
+    top: -25px;
+    left: 40%;
+    transform: rotate(-90deg);
   }
   &:before {
     content:'';
@@ -2930,9 +2940,6 @@ $slick-dot-size-small: 10px;
   }
 
   &:last-child {
-    padding-bottom: 0;
-  }
-  &:nth-of-type(4) {
     padding-bottom: 0;
   }
 }
@@ -5981,12 +5988,14 @@ $toolbar-height-small: 46px;
 }
 .slider-thumbnails-container {
   @include media-query($medium-up) {
-    width:10.45%;
+    /*width:10.45%;*/
+    width: 10.55%
   }
 }
 .product-single-container {
   @include media-query($medium-up) {
-    width:22.85%;
+    /*width:22.85%;*/
+    width:22.75%;
   }
 }
 .intro-description {
@@ -6138,14 +6147,17 @@ $toolbar-height-small: 46px;
 /* 
    Swatches Styles - https://help.shopify.com/themes/customization/products/features/add-color-swatches
 */
-{% assign width = '50px' %}
-{% assign height = '35px' %}
+{% assign width = '45px' %}
+{% assign height = '45px' %}
 .swatch { 
   margin:1em 0; 
 }
 /* Label */
 .swatch .header {
   margin: 0.5em 0;
+  font-family: "Avenir-medium","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: em(14px);
+  color: $color-text;
 }
 /* Hide radio buttons.*/
 .swatch input { 
@@ -6166,7 +6178,7 @@ $toolbar-height-small: 46px;
   /* The border when the button is not selected */
   border:#ccc 1px solid;
   /* Background color */
-  background-color:#ddd;
+  background-color:#fff;
   /* Styling text */
   font-size:13px;
   text-align:center;
@@ -6174,8 +6186,8 @@ $toolbar-height-small: 46px;
   white-space:nowrap;
   text-transform:uppercase;
 }
-.swatch-element label { padding:0 10px; }
-.color.swatch-element label { padding:0; }
+.swatch-element label { padding:0px; border-radius: 100%; }
+.color.swatch-element label { padding:0px; border-radius: 100%; }
 /* Styling selected swatch */
 /* Slightly raised */
 .swatch input:checked + label {
