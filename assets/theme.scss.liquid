@@ -1263,6 +1263,11 @@ html {
     &:before { right: 2.5%; }
     &:after { left: 2.5%; }
   }
+  .page-section-header {
+    font-family: "Avenir-black","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: em(20px);
+    margin-bottom: 40px;
+  }
 }
 
 /*================ Typography ================*/
@@ -2925,6 +2930,9 @@ $slick-dot-size-small: 10px;
   }
 
   &:last-child {
+    padding-bottom: 0;
+  }
+  &:nth-of-type(4) {
     padding-bottom: 0;
   }
 }
@@ -5981,6 +5989,9 @@ $toolbar-height-small: 46px;
     width:22.85%;
   }
 }
+.intro-description {
+  margin-bottom: 30px;
+}
 .product-single__description {
   color: $color-text;
   .grid {
@@ -6000,8 +6011,17 @@ $toolbar-height-small: 46px;
     margin-bottom: 0;
   }
 }
-.product-single__description .h3, .product-single__description .video-wrapper {
+.product-single__description .h3 {
   margin-bottom:4px;
+}
+.product-single__description .video-wrapper {
+  margin-bottom:4px;
+  padding-bottom: 0;
+  height: 242px;
+  iframe {
+    width: 430px;
+    height: 242px;
+  }
 }
 .product-single__description .h4 {
   font-family: "Avenir-medium","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -6013,11 +6033,110 @@ $toolbar-height-small: 46px;
   font-size: em(12px);
   margin-bottom: 20px;
 }
-.related-products-container {
-  margin-bottom: 55px;
+.page-section-container {
+  font-family: "Avenir-medium","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: em(14px);
+  .grid {
+    padding: 20px 0;
+    &:last-child {
+      padding-bottom:55px;
+    }
+  }
+  p {
+    color: $color-text;
+  }
+  .h4 {
+    text-align: center;
+    font-family: "Avenir-medium","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: em(14px);
+    color: $color-text;
+    margin-bottom:4px;
+  }
 }
+.gurantee-statement {
+  background-color:#97c6c0;
+  font-family: "Avenir-medium","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: em(20px);
+  color: #fff;
+  padding: 20px 0;
+}
+.insta-feed-container {
+  img {
+    object-fit: cover;
+  }
+}
+.locally-crafted {
+  div {
+    img {
+      float: left;
+    }
+    .h1 {
+      color: $color-text;
+      font-size: em(24px);
+      font-weight: $font-weight-bold;
+      margin: 0;
+      padding: 160px 0 4px 0;
+    }
+    .h2 {
+      font-size: em(20px);
+      margin: 0;
+    }
+  }
+}
+.design-team, .drape-perfection, .special-piece, .production-process, .our-mission, .company-culture, .made-local {
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+  .h3 {
+    color: $color-text;
+    margin: 10px 0;
+  }
+  .h4 {
+    text-align: left;
+    margin: 15px 0;
+    font-size: em(16px);
+    font-family: "Avenir-black","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+}
+.drape-perfection {
+  margin-top: 200px;
+}
+.special-piece {
+  margin-top: -200px;
+}
+.production-process {
+  margin-top: 50px;
+}
+.our-mission, .company-culture, .made-local {
+  .h3 {
+    text-align: center;
+  }
+}
+.made-local {
+  position: relative;
+  .h3 {
+    font-size: em(28px);
+    margin-bottom: 40px;
+  }
+  img {
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: -130px;
+    margin-top: -60px;
+  }
+  p {
+    background-color: #f8f2f2;
+    font-size: em(18px);
+    padding: 40px 100px;
+  }
+}
+
+
+
 /* 
-   Swatches Styles
+   Swatches Styles - https://help.shopify.com/themes/customization/products/features/add-color-swatches
 */
 {% assign width = '50px' %}
 {% assign height = '35px' %}

@@ -128,9 +128,9 @@
             {% endif %}
           </p>
 
-          {% if product.available and product.variants.size > 1 %}
+          <!-- {% if product.available and product.variants.size > 1 %}
            {% include 'swatch' with 'Colors' %}
-          {% endif %}
+          {% endif %} -->
 
           <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
             {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
@@ -192,7 +192,7 @@
 </div>
 
 <div class="grid page-width">
-  <div class="grid__item medium-up--six-eighths">
+  <div class="medium-up--one-whole">
     <div class="product-single__description rte" itemprop="description">
       {{ product.description }}
     </div>
@@ -209,6 +209,7 @@
 {% schema %}
   {
     "name": "Product pages",
+    "class": "index-section",
     "settings": [
       {
         "type": "select",

@@ -2667,10 +2667,13 @@ theme.Product = (function() {
     _updateAddToCart: function(evt) {
       var variant = evt.variant;
 
-      if (variant) {
+        //added from https://help.shopify.com/themes/customization/products/features/add-color-swatches
+        if (variant) {
         for (var i=0,length=variant.options.length; i<length; i++) {
           $('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
         }
+        //end
+
         $(this.selectors.productPrices)
           .removeClass('visibility-hidden')
           .attr('aria-hidden', 'true');
@@ -3036,17 +3039,19 @@ $('.slider-nav').slick({
    vertical: true,
    verticalSwiping: true
 });
+
 // $('#get-slider-thumbnails-container').css({'height': $('#get-slider-container').height(),'overflow':'hidden'});
 
-jQuery(function() {
-  jQuery('.swatch :radio').change(function() {
-    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
-    var optionValue = jQuery(this).val();
-    jQuery(this)
-      .closest('form')
-      .find('.single-option-selector')
-      .eq(optionIndex)
-      .val(optionValue)
-      .trigger('change');
-  });
-});
+// added from https://help.shopify.com/themes/customization/products/features/add-color-swatches
+// jQuery(function() {
+//   jQuery('.swatch :radio').change(function() {
+//     var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+//     var optionValue = jQuery(this).val();
+//     jQuery(this)
+//       .closest('form')
+//       .find('.single-option-selector')
+//       .eq(optionIndex)
+//       .val(optionValue)
+//       .trigger('change');
+//   });
+// });
