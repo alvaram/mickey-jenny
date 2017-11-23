@@ -9,27 +9,22 @@
     {% endunless %}
 
     <div class="grid-view-item__image-wrapper js">
-      <div style="padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
-        <img class="grid-view-item__image lazyload"
-             src="{{ product.featured_image | img_url: '300x300' }}"
-             data-src="{{ img_url }}"
-             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-             data-aspectratio="{{ product.featured_image.aspect_ratio }}"
-             data-sizes="auto"
-             alt="{{ product.featured_image.alt | escape }}">
+      <div class="grid-view-item__image box ratio-container lazyload js"
+         data-bgset="{% include 'bgset', image: product.featured_image %}"
+         data-sizes="auto"
+         data-parent-fit="cover"
+         style="background-image: url('{{ product.featured_image | img_url: '300x300' }}')">
       </div>
     </div>
-
     <noscript>
-      {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
-      <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
-    </noscript>
+       <div class="grid-view-item__image" style="background-image: url('{{ product.featured_image | img_url: '300x300' }}')"></div>
+     </noscript>
 
-    <div class="h4 grid-view-item__title">{{ product.title }}</div>
+    <div class="h4 grid-view-item__title text-center">{{ product.title }}</div>
     {% if section.settings.show_vendor %}
       <div class="grid-view-item__vendor">{{ product.vendor }}</div>
     {% endif %}
-    <div class="grid-view-item__meta">
+    <div class="grid-view-item__meta text-center">
       {% include 'product-price' %}
     </div>
   </a>

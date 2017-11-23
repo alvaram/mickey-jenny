@@ -1,7 +1,7 @@
 <div class="page-width">
   {% if section.settings.title != blank %}
-    <div class="section-header text-center">
-      <h2>{{ section.settings.title | escape }}</h2>
+    <div class="section-header shop-lifestyle-header">
+      <h2 class="h1">{{ section.settings.title | escape }}</h2>
     </div>
   {% endif %}
 
@@ -24,13 +24,13 @@
 
   {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
 
-  <div class="grid grid--uniform grid--view-items">
+  <div class="grid grid--view-items shop-lifestyle-container">
+
     {% for product in collection.products limit: product_limit %}
-      <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+      <div class="grid__item grid__item--{{section.id}} {% cycle grid_item_width, grid_item_width, 'medium-up--one-whole', grid_item_width, grid_item_width %}">
         {% include 'product-card-grid', max_height: max_height %}
       </div>
     {% else %}
-
       {% for i in (1..product_limit) %}
         <div class="grid__item .grid__item--{{section.id}} {{ grid_item_width }}">
           <div class="grid-view-item">
@@ -63,7 +63,7 @@
 
 {% schema %}
   {
-    "name": "Featured collection",
+    "name": "Featured collection 2-1-2",
     "class": "index-section",
     "settings": [
       {

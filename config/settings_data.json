@@ -4,7 +4,7 @@
     "color_body_text": "#788188",
     "color_sale_text": "#7796a8",
     "color_borders": "#e8e9eb",
-    "color_button": "#7796a8",
+    "color_button": "#0b0a09",
     "color_button_text": "#fff",
     "color_small_button": "#fff",
     "color_small_button_text": "#3d4246",
@@ -70,9 +70,246 @@
           "footer_newsletter_enable": false,
           "show_payment_icons": false
         }
+      },
+      "1510612354937": {
+        "type": "slideshow",
+        "blocks": {
+          "1510612354937-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/slider-1.jpg",
+              "alignment": "top",
+              "title": "",
+              "subheading": "",
+              "link": ""
+            }
+          },
+          "1510612354937-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/slider-2.jpg",
+              "alignment": "top",
+              "title": "",
+              "subheading": "",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1510612354937-0",
+          "1510612354937-1"
+        ],
+        "settings": {
+          "autoplay": true,
+          "autoplay_speed": "5000",
+          "slideshow_height": "large",
+          "text_size": "large"
+        }
+      },
+      "1510612475779": {
+        "type": "custom-content",
+        "blocks": {
+          "1510612500876": {
+            "type": "video",
+            "settings": {
+              "video_url": "https:\/\/www.youtube.com\/watch?v=FT1Fc92-eFY",
+              "video_title": "HOW WE CRAFT : IN THE STUDIO",
+              "video_info": "We strongly belive the jeourney is as important as the  destination. So we roll up our sleeve and got to work.",
+              "width": "50%",
+              "alignment": "top-middle"
+            }
+          }
+        },
+        "block_order": [
+          "1510612500876"
+        ],
+        "settings": {
+          "title": "Every piece that we make is Special",
+          "sub-title": "See the making behind every Heritage Original"
+        }
+      },
+      "1510613433163": {
+        "type": "collection-list",
+        "blocks": {
+          "1510613433163-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "weekend-escape"
+            }
+          },
+          "1510613433163-1": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "shop-by-lifestyle"
+            }
+          },
+          "1510613433163-2": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "not-your-gym-clothes"
+            }
+          },
+          "1510613494050": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "splurge"
+            }
+          }
+        },
+        "block_order": [
+          "1510613433163-0",
+          "1510613433163-1",
+          "1510613433163-2",
+          "1510613494050"
+        ],
+        "settings": {
+          "title": "Shop for Your Lifestyle",
+          "grid": 4
+        }
+      },
+      "1510613771433": {
+        "type": "feature-footer",
+        "blocks": {
+          "1510613771433-0": {
+            "type": "text_block",
+            "settings": {
+              "title": "Follow the Limited Edition",
+              "text": "<p>We&rsquo;ll send you emails about our Originals &amp; Limited edition releases for you to claim it first<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "show_newsletter": true
+            }
+          },
+          "1510613771433-1": {
+            "type": "text_block",
+            "settings": {
+              "title": "MEET M&J",
+              "text": "<p>and how we create Mickey &amp; Jenny originals. What we do is more then just beautiful clothing. We are on a journey to make a difference.<\/p>",
+              "button_label": "see what we’re all about",
+              "button_link": "shopify:\/\/pages\/company",
+              "show_newsletter": false
+            }
+          },
+          "1510613771433-2": {
+            "type": "text_block",
+            "settings": {
+              "title": "Refer a friend. Earn $25",
+              "text": "<p>Will give you a credit for $25 when they purchase.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "show_newsletter": false
+            }
+          }
+        },
+        "block_order": [
+          "1510613771433-0",
+          "1510613771433-1",
+          "1510613771433-2"
+        ],
+        "settings": {
+          "title": "More about us",
+          "align_text": "center"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": "4",
+          "rows": "2",
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "image_size": "small",
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_zoom": false,
+          "show_share_buttons": true
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": "3"
+        }
+      },
+      "1510709311270": {
+        "type": "instagram-feed",
+        "settings": {
+          "title": "Shop‘Gram. #ModernHeritage",
+          "sub-title": "Shop your fav looks from the @mickeyandjenny feed."
+        }
+      },
+      "related-products": {
+        "type": "related-products",
+        "settings": {
+          "show_related_products": true,
+          "related_title": "Meet my Friends",
+          "related_grid_num": "3",
+          "related_grid_row": "1"
+        }
+      },
+      "feature-footer": {
+        "type": "feature-footer",
+        "blocks": {
+          "1510734199256": {
+            "type": "text_block",
+            "settings": {
+              "title": "Follow the Limited Edition",
+              "text": "<p>We&rsquo;ll send you emails about our Originals &amp; Limited edition releases for you to claim it first<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "show_newsletter": true
+            }
+          },
+          "1510734203240": {
+            "type": "text_block",
+            "settings": {
+              "title": "MEET M&J",
+              "text": "<p>and how we create Mickey &amp; Jenny originals. What we do is more then just beautiful clothing. We are on a journey to make a difference.<\/p>",
+              "button_label": "see what we're all about",
+              "button_link": "shopify:\/\/pages\/career",
+              "show_newsletter": false
+            }
+          },
+          "1510734211464": {
+            "type": "text_block",
+            "settings": {
+              "title": "Refer a friend. Earn $25",
+              "text": "<p>Will give you a credit for $25 when they purchase.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "show_newsletter": false
+            }
+          }
+        },
+        "block_order": [
+          "1510734199256",
+          "1510734203240",
+          "1510734211464"
+        ],
+        "settings": {
+          "title": "More about us",
+          "align_text": "center"
+        }
       }
     },
-    "content_for_index": []
+    "content_for_index": [
+      "1510612354937",
+      "1510612475779",
+      "1510613433163",
+      "1510709311270",
+      "1510613771433"
+    ]
   },
   "presets": {
     "Default": {
