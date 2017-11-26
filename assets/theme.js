@@ -2485,7 +2485,7 @@ theme.Product = (function() {
       productThumbs: '.product-single__thumbnails-' + sectionId,
       saleClasses: 'product-price__sale product-price__sale--single',
       saleLabel: '.product-price__sale-label-' + sectionId,
-      singleOptionSelector: '.single-option-selector-' + sectionId
+      singleOptionSelector: '.single-option-selector__radio'
     };
 
     // Stop parsing if we don't have the product json script tag when loading
@@ -3079,7 +3079,7 @@ $('.slider-nav').slick({
 //     var optionValue = jQuery(this).val();
 //     jQuery(this)
 //       .closest('form')
-//       .find('.single-option-selector')
+//       .find('.single-option-selector__radio')
 //       .eq(optionIndex)
 //       .val(optionValue)
 //       .trigger('change');
