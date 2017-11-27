@@ -132,12 +132,12 @@
 
           <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
 
-            {% if product.available and product.variants.size > 1 %}
+            <!-- {% if product.available and product.variants.size > 1 %}
               {% for option in product.options %}
                 {% include 'swatch' with option %}
               {% endfor %}
-            {% endif %}
-
+            {% endif %} -->
+            
             {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
               {% for option in product.options_with_values %}
                 <div class="selector-wrapper js product-form__item">
@@ -155,15 +155,31 @@
                           {% assign variant_label_state = false %}
                         {% endunless %}
                       {% endif %}
-                      <input type="radio"
-                        {% if option.selected_value == value %} checked="checked"{% endif %}
-                        {% unless variant_label_state %} disabled="disabled"{% endunless %}
-                        value="{{ value | escape }}"
-                        data-index="option{{ option_index }}"
-                        name="{{ option.name }}"
-                        class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
-                        id="ProductSelect-option-{{ option.name }}-{{ value | escape }}">
-                      <label for="ProductSelect-option-{{ option.name }}-{{ value | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %}>{{ value | escape }}</label>
+                      {% assign downcased_option = option.name | downcase %}
+                        {% if downcased_option contains 'color' or downcased_option contains 'colors' or downcased_option contains 'colour' %}
+                          <div data-value="{{ value | escape }}" class="tooltip-container">
+                          <div class="tooltip">{{ value | escape }}</div>
+                          <input type="radio"
+                            {% if option.selected_value == value %} checked="checked"{% endif %}
+                            {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                            value="{{ value | escape }}"
+                            data-index="option{{ option_index }}"
+                            name="{{ option.name }}"
+                            class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
+                            id="ProductSelect-option-{{ option.name }}-{{ value | escape }}">
+                          <label for="ProductSelect-option-{{ option.name }}-{{ value | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %} style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})"></label><span class="ProductSelect-option-{{ option.name }}-{{ value | escape }} option-name">{{ value | escape }}</span>
+                          </div>
+                        {% else %}
+                          <input type="radio"
+                            {% if option.selected_value == value %} checked="checked"{% endif %}
+                            {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                            value="{{ value | escape }}"
+                            data-index="option{{ option_index }}"
+                            name="{{ option.name }}"
+                            class="single-option-selector__radio{% unless variant_label_state %} disabled{% endunless %}"
+                            id="ProductSelect-option-{{ option.name }}-{{ value | escape }}">
+                          <label for="ProductSelect-option-{{ option.name }}-{{ value | escape }}"{% unless variant_label_state %} class="disabled"{% endunless %}>{{ value | escape }}</label>
+                        {% endif %}
                     {% endfor %}
                   </fieldset>
                   <!-- <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
