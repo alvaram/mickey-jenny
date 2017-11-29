@@ -104,24 +104,24 @@
   },
   "cart": {
     "general": {
-      "title": "Your cart",
+      "title": "Shopping Bag",
       "note": "Add a note to your order",
-      "remove": "Remove",
+      "remove": "X",
       "subtotal": "Subtotal",
       "savings": "You're saving",
-      "shipping_at_checkout": "Shipping & taxes calculated at checkout",
+      "shipping_at_checkout": "Standard Shipping (free over $150)",
       "update": "Update",
-      "checkout": "Check out",
+      "checkout": "Checkout",
       "empty": "Your cart is currently empty.",
       "cookies_required": "Enable cookies to use the shopping cart",
       "edit": "Edit",
       "cancel": "Cancel",
-      "continue_shopping": "Continue shopping"
+      "continue_shopping": "Back to Shopping"
     },
     "label": {
       "product": "Product",
       "price": "Price",
-      "quantity": "Quantity",
+      "quantity": "Qty",
       "total": "Total"
     }
   },

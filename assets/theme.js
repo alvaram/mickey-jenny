@@ -3071,6 +3071,7 @@ $('.slider-nav').slick({
 });
 
 // $('#get-slider-thumbnails-container').css({'height': $('#get-slider-container').height(),'overflow':'hidden'});
+$(".additional-checkout-button--paypal-express").prepend( "Continue with " );
 
 // added from https://help.shopify.com/themes/customization/products/features/add-color-swatches
 // jQuery(function() {
