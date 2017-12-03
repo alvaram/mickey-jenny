@@ -3003,26 +3003,15 @@ $('.slider-for').slick({
   asNavFor: '.slider-nav',
   responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 990,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
+        slidesToShow: 2
       }
     },
     {
-      breakpoint: 600,
+      breakpoint: 540,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToShow: 1
       }
     }
     // You can unslick at a given breakpoint now by adding:
@@ -3037,52 +3026,8 @@ $('.slider-nav').slick({
    asNavFor: '.slider-for',
    focusOnSelect: true,
    vertical: true,
-   verticalSwiping: true,
-   responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        vertical: false,
-        verticalSwiping: false
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
+   verticalSwiping: true
 });
 
 // $('#get-slider-thumbnails-container').css({'height': $('#get-slider-container').height(),'overflow':'hidden'});
 $(".additional-checkout-button--paypal-express").prepend( "Continue with " );
-
-// added from https://help.shopify.com/themes/customization/products/features/add-color-swatches
-// jQuery(function() {
-//   jQuery('.swatch :radio').change(function() {
-//     var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
-//     var optionValue = jQuery(this).val();
-//     jQuery(this)
-//       .closest('form')
-//       .find('.single-option-selector__radio')
-//       .eq(optionIndex)
-//       .val(optionValue)
-//       .trigger('change');
-//   });
-// });

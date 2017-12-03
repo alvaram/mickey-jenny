@@ -1,5 +1,10 @@
+{% comment %}
+  Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
+{% endcomment %}
+
+{% assign file_extension = 'png' %}
 <div class="grid page-width">
-<div class="grid__item text-center prev-next-container">
+<div class="medium-up--one-whole text-center prev-next-container">
 {% if collection.previous_product %}
    <a href="{{ collection.previous_product }}" title="{{ product.title | escape }}">Previous Style</a>&nbsp;&nbsp; | &nbsp;&nbsp;
    {% else %}
@@ -51,7 +56,7 @@
 
   <div class="grid product-single">
 
-    <div id="get-slider-container" class="grid__item product-single__photos medium-up--four-sixths slider-for">
+    <div id="get-slider-container" class="grid__item product-single__photos large-up--four-sixths slider-for">
       {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
       {% for image in product.images %}
         {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
@@ -60,7 +65,7 @@
         {% capture img_wrapper_id %}{{ zoom_img_id }}-wrapper{% endcapture %}
         {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
         
-          <div class="product-single__photo">
+          <div class="product-single__photo ratio-container">
             <img class="feature-row__image {{ img_class }} lazyload{% unless featured_image == image %} lazypreload{% endunless %}"
                  src="{{ image | img_url: '300x300' }}"
                  data-src="{{ img_url }}"
@@ -72,13 +77,13 @@
       {% endfor %}
     </div>
 
-    <div class="grid__item medium-up--one-sixth slider-thumbnails-container">
+    <div class="grid__item large-up--one-sixth slider-thumbnails-container large-down--hide">
     {% if product.images.size > 1 %}
 
         <div class="product-single__thumbnails thumbnails-wrapper slider-nav">
 
             {% for image in product.images %}
-              <div class="product-single__thumbnails-item js">
+              <div class="product-single__thumbnails-item ratio-container js">
                   <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 3 }}" alt="{{ image.alt | escape }}">
               </div>
             {% endfor %}
@@ -87,7 +92,7 @@
       {% endif %}
     </div>
 
-    <div class="grid__item medium-up--one-sixth product-single-container">
+    <div class="grid__item large-up--one-sixth product-single-container">
       <div class="product-single__meta">
 
         <h2 itemprop="name" class="h4 product-single__title-collection">{{ product.type }},</h2>
@@ -128,15 +133,7 @@
             {% endif %}
           </p>
 
-          
-
           <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
-
-            <!-- {% if product.available and product.variants.size > 1 %}
-              {% for option in product.options %}
-                {% include 'swatch' with option %}
-              {% endfor %}
-            {% endif %} -->
             
             {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
               {% for option in product.options_with_values %}
@@ -182,11 +179,7 @@
                         {% endif %}
                     {% endfor %}
                   </fieldset>
-                  <!-- <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
-                    {% for value in option.values %}
-                      <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
-                    {% endfor %}
-                  </select> -->
+
                 </div>
               {% endfor %}
             {% endunless %}

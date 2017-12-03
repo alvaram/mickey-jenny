@@ -1,4 +1,4 @@
-<div class="page-width">
+<div class="page-width insta-feed-container">
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
       <h1 class="h3">{{ section.settings.title | escape }}</h1>
@@ -7,11 +7,11 @@
   {% endif %}
 
  
-  <div class="grid insta-feed-container">
+  <div class="grid">
 
       <div class="grid__item medium-up--one-whole" {{ block.shopify_attributes }}>
         
-         <div id="insta-feed"></div>
+         <div id="insta-feed" class="insta-slider"></div>
         {% if block.settings.title != blank %}
           <h3 class="h4 about-us-sub-header">{{ block.settings.title | escape }}</h3>
         {% endif %}
