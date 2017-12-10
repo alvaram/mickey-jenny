@@ -1,0 +1,31 @@
+jQuery(document).ready(function($){
+var images = [];
+{% for image in product.images %}
+  images.push({url: "{{ image.src | img_url: '110x110', scale: 3 }}", alt: "{{ image.alt }}"});
+{% endfor %}
+  var thumbnails = $(".thumbnails-wrapper");                         
+  $('#ProductSelect-option-0 input').change(function() {
+    var selected = $(this).val(),
+    mainImage = jQuery('.product-single__photo img').attr('src').replace('_1024x1024', '_medium');
+    // thumbnails.hide().html("");
+    arr = [];
+    var addImage = $.each( images, function( i, image ) {
+      var alt = images[i].alt, url = images[i].url;   
+      if (alt == selected || url == mainImage) {
+        thumbnails.append('<img src="' + url + '" alt="' + alt + '">');
+      }
+    });
+    arr.push(addImage);
+    $.when.apply($, arr).done(function () {
+      thumbnails.fadeIn(); 
+      $('.product-single__thumbnail-image').on('click', function(e) { 
+        e.preventDefault();
+        switchImage($(this).attr('href'), null, $('.product-single__photo img')[0]);
+      });
+    });
+  });
+});  
+var switchImage = function(newImageSrc, newImage, mainImageDomEl) {
+  jQuery(mainImageDomEl).attr('src', newImageSrc);
+  $(mainImageDomEl).parents('a').attr('href', newImageSrc);
+};

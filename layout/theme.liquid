@@ -79,6 +79,11 @@
     <!--[if lte IE 9]><script src="{{ 'insta-slider.js' | asset_url }}"></script><![endif]-->
   {% endif %}
 
+  {% if template == 'product' %}
+    <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'image-switcher.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+    <!--[if lte IE 9]><script src="{{ 'image-switcher.js' | asset_url }}"></script><![endif]-->
+  {% endif %}
+
   {{ content_for_header }}
 </head>
 

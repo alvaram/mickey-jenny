@@ -29,7 +29,7 @@
         {%- assign outerLoopIndex = forloop.index -%}
         {%- assign child_list_handle = link.title | handleize -%}
 
-        <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %} border-bottom">
+        <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %} border-bottom {% if link.title == 'Home' %} hide{% endif %}">
           {% if linklists[child_list_handle].links != blank %}
             <button type="button" class="btn--link js-toggle-submenu mobile-nav__link" data-target="{{ child_list_handle }}-{{ outerLoopIndex }}" data-level="1">
               {{ link.title }}

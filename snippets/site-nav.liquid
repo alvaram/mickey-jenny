@@ -16,7 +16,7 @@
     {% endif %}
 
     {% if linklists[child_list_handle].links != blank %}
-      <li class="site-nav--has-dropdown{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" aria-has-popup="true" aria-controls="SiteNavLabel-{{ child_list_handle }}">
+      <li class="site-nav--has-dropdown{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %} {{ link.title | handle }}" aria-has-popup="true" aria-controls="SiteNavLabel-{{ child_list_handle }}">
         <a href="{{ link.url }}" class="site-nav__link site-nav__link--main">
           {{ link.title }}
           {% include 'icon-chevron-down' %}
@@ -57,7 +57,7 @@
         </div>
       </li>
     {% else %}
-      <li {% if link.active %}class="site-nav--active"{% endif %}>
+      <li class="{% if link.active %} site-nav--active{% endif %} {{ link.title | handle }}">
         <a href="{{ link.url }}" class="site-nav__link site-nav__link--main">{{ link.title }}</a>
       </li>
     {% endif %}

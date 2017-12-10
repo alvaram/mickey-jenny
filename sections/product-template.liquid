@@ -58,7 +58,9 @@
 
     <div id="get-slider-container" class="grid__item product-single__photos large-up--four-sixths slider-for">
       {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
+      {% assign featured_alt = product.selected_or_first_available_variant.option1 %}
       {% for image in product.images %}
+      {% if image.alt == featured_alt or image == featured_image %}
         {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
         {% capture img_class %}product-featured-img{% endcapture %}
         {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %}
@@ -74,24 +76,29 @@
                  data-sizes="auto"
                  alt="{{ image.alt | escape }}">
           </div>
+      {% endif %}
       {% endfor %}
     </div>
-
+    
     <div class="grid__item large-up--one-sixth slider-thumbnails-container large-down--hide">
+    <button type="button" data-role="none" class="slick-up slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
     {% if product.images.size > 1 %}
 
         <div class="product-single__thumbnails thumbnails-wrapper slider-nav">
-
+            {% assign featured_alt = product.selected_or_first_available_variant.option1 %}
             {% for image in product.images %}
+            {% if image.alt == featured_alt or image == featured_image %}
               <div class="product-single__thumbnails-item ratio-container js">
                   <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 3 }}" alt="{{ image.alt | escape }}">
               </div>
+            {% endif %}
             {% endfor %}
 
         </div>
       {% endif %}
+    <button type="button" data-role="none" class="slick-down slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
     </div>
-
+    
     <div class="grid__item large-up--one-sixth product-single-container">
       <div class="product-single__meta">
 

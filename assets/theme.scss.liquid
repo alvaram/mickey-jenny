@@ -565,8 +565,8 @@ $slick-opacity-not-active: 0.25;
 
   .slick-vertical & {
     display: block;
-    height: 188px;
-    border: 1px solid transparent;
+    height: 169px;
+    border-bottom: 2px solid transparent;
   }
 }
 .slick-arrow.slick-hidden {
@@ -660,6 +660,11 @@ $slick-opacity-not-active: 0.25;
     left: 40%;
     transform: rotate(-90deg);
   }
+  &.slick-up {
+    top: 101%;
+    left: 40%;
+    transform: rotate(-90deg);
+  }
 }
 
 .slick-next {
@@ -673,6 +678,11 @@ $slick-opacity-not-active: 0.25;
     z-index: 1;
   }
   .slider-nav & {
+    top: -25px;
+    left: 40%;
+    transform: rotate(-90deg);
+  }
+  &.slick-down {
     top: -25px;
     left: 40%;
     transform: rotate(-90deg);
@@ -2817,7 +2827,7 @@ hr {
   }
 
   @include media-query($small) {
-    font-size: em($font-size-base - 1px);
+    font-size: em($font-size-base);
   }
 }
 
@@ -3511,21 +3521,28 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 .cart__meta-text {
   .item-option-name-container {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    @include media-query($medium-up) {
+      margin-bottom: 20px;
+    }
   }
   .item-option-name {
     display: inline-block;
-    min-width: 80px;
-    + span {
-      padding-right: 40px;
+    @include media-query($medium-up) {
+      min-width: 80px;
+      + span {
+        padding-right: 40px;
+      }
     }
   }
 }
 .cart__qty-label {
   display: inline-block;
-  min-width: 80px;
-  + span {
-    padding-right: 40px;
+  @include media-query($medium-up) {
+    min-width: 80px;
+    + span {
+      padding-right: 40px;
+    }
   }
 }
 .cart__qty-input {
@@ -3540,7 +3557,11 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
     padding-bottom: 2px;
   }
 }
-
+.cart__update {
+  @include media-query($small) {
+    padding: 0px;
+  }
+}
 .cart__edit {
   margin-top: 10px;
 }
@@ -3585,10 +3606,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 .cart__subtotal {
   padding-left: $gutter-site / 2;
   font-size: em(20px);
-  float: right;
   @include media-query($medium-up) {
-    padding-left: $gutter-site;
-    min-width: 150px;
     display: inline-block;
   }
 }
@@ -3616,7 +3634,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .cart__continue--large {
-  margin-right: 10px;
   line-height: 1.2;
 }
 
@@ -3653,6 +3670,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   object-position: center;
 }
 .cart__image-wrapper {
+  width: 50%;
   .ratio-container:after {
     padding-bottom: 130%;
   }
@@ -3669,23 +3687,19 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   float: right;
   font-family: "Avenir-medium","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: em(16px);
+  margin-top: 4px;
+  margin-right: 40px;
 }
 
 @include media-query($medium-up) {
   .cart__image-wrapper {
     width: 230px;
   }
-  .cart__price-wrapper {
-    font-family: "Avenir-black","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: em(20px);
-  }
   .cart__meta {
     max-width: 300px;
   }
 
   .cart__remove {
-    margin-top: 4px;
-    margin-right: 40px;
   }
 
   .cart__qty {
@@ -3735,7 +3749,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   .cart-flex {
     @include display-flexbox();
     @include flex-wrap(wrap);
-    @include align-items(center);
+    @include align-items(top);
   }
 
   .cart-flex-item {
@@ -3749,12 +3763,12 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 
   .cart__image-wrapper {
-    @include flex(0 0 85px);
+    @include flex(0 0 50%);
   }
 
   .cart__price-wrapper {
     @include flex(0 1 24%);
-    text-align: right;
+    text-align: left;
   }
 
   .cart__header {
@@ -3766,7 +3780,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 
   .cart__qty {
-    padding: 0 10px;
+    padding: 0 0px;
   }
 
   .cart__qty-label {
@@ -3777,7 +3791,10 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
     margin-right: 5px;
   }
 }
-
+.cart__price-wrapper {
+  font-family: "Avenir-black","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: em(20px);
+}
 .cart__continue-btn {
   .cart--no-cookies & {
     display: none;
@@ -6034,7 +6051,7 @@ $toolbar-height-small: 46px;
   width: 100%;
   height: 30px;
 }
-.logo {
+.home {
   background-position: 40% center;
   background: {
     image: url($svg-logo-icon);
@@ -6123,6 +6140,7 @@ $toolbar-height-small: 46px;
   }
 }
 .slider-thumbnails-container {
+  position: relative;
   @include media-query($large-up) {
     width:130px;
     padding-left: 0px;
@@ -6201,20 +6219,30 @@ $toolbar-height-small: 46px;
   padding: 20px 0;
 }
 .locally-crafted {
+  position: relative;
+  img {
+    float: left;
+  }
   div {
-    img {
-      float: left;
+    width: 100%;
+    @include media-query($medium-up) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: -40px;
+      margin-left: 120px;
     }
     .h1 {
       color: $color-text;
       font-size: em(24px);
       font-weight: $font-weight-bold;
       margin: 0;
-      padding: 160px 0 4px 0;
+      padding: 0px 0 4px 0;
     }
     .h2 {
       font-size: em(20px);
-      margin: 0;
+      margin: 0 0 10px;
     }
   }
 }
@@ -6236,12 +6264,18 @@ $toolbar-height-small: 46px;
 }
 .drape-perfection {
   margin-top: 200px;
+  @include media-query($small) {
+    margin-top: 40px;
+  }
 }
 .special-piece {
   margin-top: -200px;
+  @include media-query($small) {
+    margin-top: 0px;
+  }
 }
 .production-process {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 .our-mission, .company-culture, .made-local {
   .h3 {
@@ -6250,21 +6284,31 @@ $toolbar-height-small: 46px;
 }
 .made-local {
   position: relative;
+  text-align: center;
   .h3 {
     font-size: em(28px);
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    @include media-query($large-up) {
+      margin-bottom: 40px;
+    }
   }
   img {
     width: 200px;
-    position: absolute;
-    top: 50%;
-    left: -130px;
-    margin-top: -60px;
+    @include media-query($large-up) {
+      position: absolute;
+      top: 50%;
+      left: -130px;
+      margin-top: -60px;
+    }
   }
   p {
     background-color: #f8f2f2;
     font-size: em(18px);
-    padding: 40px 100px;
+    padding: 20px 40px;
+    text-align: left;
+    @include media-query($large-up) {
+      padding: 40px 100px;;
+    }
   }
 }
 .shop-lifestyle-header h2 {
@@ -6310,11 +6354,31 @@ $toolbar-height-small: 46px;
     &.align-left {
       width: 201px;
       margin-left: 70px;
+      @include media-query($small) {
+        float: none;
+        margin: 0 auto;
+      }
+      @include media-query($medium) {
+        margin-left: 0px;
+      }
+      @include media-query($large) {
+        margin-left: 40px;
+      }
     }
     &.align-right {
       width: 201px;
       float: right;
       margin-right: 60px;
+      @include media-query($small) {
+        float: none;
+        margin: 0 auto;
+      }
+      @include media-query($medium) {
+        margin-right: 0px;
+      }
+      @include media-query($large) {
+        margin-right: 30px;
+      }
     }
   }
   .green-saver {
@@ -6340,6 +6404,10 @@ $toolbar-height-small: 46px;
   }
   &.upside-down.align-right {
     float: right;
+    @include media-query($small) {
+      float: none;
+      margin: 50px auto 20px;
+    }
   }
   .line-center {
     font-size:0;
@@ -6374,13 +6442,19 @@ $toolbar-height-small: 46px;
   }
 }
 .cart__continue-container {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   margin-top: -20px;
+  @include media-query($medium-up) {
+    margin-bottom: 30px;
+  }
 }
 .shopping-bag {
-  padding: 40px 55px;
+  padding: 20px 25px;
   background-color: #f8f3f2;
   font-family: "Avenir-medium","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+  @include media-query($medium-up) {
+    padding: 40px 55px;
+  }
   h1 {
     color: $color-text;
     font-size: em(24px);
@@ -6391,9 +6465,12 @@ $toolbar-height-small: 46px;
 .shopping-bag-containers {
   background-color: #fff;
   position: relative;
-  right: 27.5px;
-  + .shopping-bag-containers {
-    left: 27.5px;
+  margin-bottom: 20px;
+  @include media-query($medium-up) {
+    right: 27.5px;
+    + .shopping-bag-containers {
+      left: 27.5px;
+    }
   }
 }
 .cart-total-container {
@@ -6453,6 +6530,17 @@ $toolbar-height-small: 46px;
       width: 250px!important;
       height: 250px!important;
       float: left;
+    }
+  }
+}
+.limited-edition {
+  background-image: linear-gradient(-90deg, #deb97f, #f6d597);
+  padding: 2px;
+  a {
+    background-color: #fff;
+    padding: 5px 10px;
+    &:hover, &:focus {
+      opacity: 1;
     }
   }
 }

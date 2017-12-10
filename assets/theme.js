@@ -2635,7 +2635,7 @@ theme.Product = (function() {
         this.$container
       );
       $newImage.removeClass('hide');
-      $otherImages.addClass('hide');
+      // $otherImages.addClass('hide');
     },
 
     _initThumbnailSlider: function() {
@@ -2972,8 +2972,8 @@ $(theme.init);
 
 
 // Custom JS
-$( ".site-nav li a[href='/']" ).parent('li').addClass( "logo" );
-$( ".mobile-nav li" ).eq(7).addClass( "small--hide" );
+// $( ".site-nav li a[href='/']" ).parent('li').addClass( "logo" );
+// $( ".mobile-nav li" ).eq(7).addClass( "small--hide" );
 
 $('.collection-slider-for').slick({
   infinite: false,
@@ -3020,14 +3020,29 @@ $('.slider-for').slick({
   ]
 });
 $('.slider-nav').slick({
-   slidesToShow: 4,
+   slidesToShow: 5,
    slidesToScroll: 1,
-   arrows: true,
    asNavFor: '.slider-for',
-   focusOnSelect: true,
    vertical: true,
-   verticalSwiping: true
+   verticalSwiping: true,
+   focusOnSelect: true
 });
-
-// $('#get-slider-thumbnails-container').css({'height': $('#get-slider-container').height(),'overflow':'hidden'});
+$('.slick-up').on('click', function(){
+    $('.slider-nav').slick("slickPrev");
+});
+$('.slick-down').on('click', function(){
+    $('.slider-nav').slick("slickNext");
+});
+// $('.product-single__thumbnails').css({'height': $('#get-slider-container').height(),'overflow':'hidden'});
+$(document).ready(function() {
+  function setHeight() {
+    sliderHeight = $('#get-slider-container').innerHeight();
+    $('.thumbnails-wrapper').css({'height': sliderHeight,'overflow':'hidden'});
+  };
+  setHeight();
+  
+  $(window).resize(function() {
+    setHeight();
+  });
+});
 $(".additional-checkout-button--paypal-express").prepend( "Continue with " );

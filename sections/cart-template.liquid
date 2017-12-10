@@ -1,9 +1,9 @@
 <div class="grid page-width">
 <div class="cart__continue-container medium-up--one-whole text-center">
-   <a href="collections/all" class="cart__continue--large small--hide" >{{ 'cart.general.continue_shopping' | t }}</a>
+   <a href="collections/all" class="cart__continue--large" >{{ 'cart.general.continue_shopping' | t }}</a>
 </div>
 </div>
-<div class="shopping-bag" data-section-id="{{ section.id }}" data-section-type="cart-template">
+<div class="grid page-width shopping-bag" data-section-id="{{ section.id }}" data-section-type="cart-template">
 
   {% if cart.item_count > 0 %}
     <!-- <div class="section-header text-center">
@@ -12,8 +12,7 @@
 
     <form action="/cart" method="post" novalidate class="cart">
       
-    <div class="grid page-width">
-      <div class="grid__item medium-up--two-thirds shopping-bag-containers">
+      <div class="grid__item small--one-whole medium-up--two-thirds shopping-bag-containers">
          <table>
            <tbody>
             {% for item in cart.items %}
@@ -109,7 +108,7 @@
           </div>
          </div>
       </div>
-      <div class="grid__item medium-up--one-third shopping-bag-containers">
+      <div class="grid__item small--one-whole medium-up--one-third shopping-bag-containers">
 
 
           {% if section.settings.cart_notes_enable %}
@@ -149,10 +148,8 @@
               <p>Purchase over $150.00 and over.</p>
             </div>
           </div>
-
-
       </div>
-    </div>
+
       
     </form>
   {% else %}
