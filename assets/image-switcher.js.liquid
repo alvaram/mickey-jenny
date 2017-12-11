@@ -1,31 +1,108 @@
 jQuery(document).ready(function($){
-var images = [];
-{% for image in product.images %}
-  images.push({url: "{{ image.src | img_url: '110x110', scale: 3 }}", alt: "{{ image.alt }}"});
-{% endfor %}
-  var thumbnails = $(".thumbnails-wrapper");                         
-  $('#ProductSelect-option-0 input').change(function() {
-    var selected = $(this).val(),
-    mainImage = jQuery('.product-single__photo img').attr('src').replace('_1024x1024', '_medium');
-    // thumbnails.hide().html("");
-    arr = [];
-    var addImage = $.each( images, function( i, image ) {
-      var alt = images[i].alt, url = images[i].url;   
-      if (alt == selected || url == mainImage) {
-        thumbnails.append('<img src="' + url + '" alt="' + alt + '">');
-      }
-    });
-    arr.push(addImage);
-    $.when.apply($, arr).done(function () {
-      thumbnails.fadeIn(); 
-      $('.product-single__thumbnail-image').on('click', function(e) { 
-        e.preventDefault();
-        switchImage($(this).attr('href'), null, $('.product-single__photo img')[0]);
-      });
-    });
+  
+  var myRadio = $("input[name='Colors']:checked").val();
+
+  var $colorsFieldset = $('fieldset[name="Colors"]');
+  var $sliderWrappers = $('.slider-wrapper');
+  var $activeSlider = $('.slider-wrapper:not(.slider-wrapper--hidden)');
+
+  $('.slider-wrapper:not(.slider-wrapper--hidden) .feature-row__image').addClass('lazyload lazypreload');
+
+  $("iframe[data-color!=" + myRadio + "]").parent(".video-wrapper").css({'display': 'none'});
+  $(".product-texture-image[data-color!=" + myRadio + "]").css({'display': 'none'});
+  
+  $sliderWrappers.each(function(index) {    
+    $currentSlider = $(this);
+
+     sliderInit($currentSlider);
+    
+    
+  });   
+ 
+  
+  $colorsFieldset.on('change', function(event) {
+    var selectedColor = event.target.value;
+    $(".slider-wrapper").addClass('slider-wrapper--hidden');
+
+    $("iframe[data-color!=" + selectedColor + "]").parent(".video-wrapper").css({'display': 'none'});
+    $(".product-texture-image[data-color!=" + selectedColor + "]").css({'display': 'none'});
+
+    $(".slider-wrapper[data-color=" + selectedColor + "] .feature-row__image").addClass('lazyload lazypreload');
+
+    $(".slider-wrapper[data-color=" + selectedColor + "]").removeClass('slider-wrapper--hidden');
+
+    $("iframe[data-color=" + selectedColor + "]").parent(".video-wrapper").css({'display': 'block'});
+    $(".product-texture-image[data-color=" + selectedColor + "]").css({'display': 'block'});
+    
+    var sliderIndex = $('.slider-wrapper:not(.slider-wrapper--hidden)').index();
+    var currentsliderr = $(".slider-wrapper[data-color=" + selectedColor + "]");
+    $('.slider-for', currentsliderr).slick('unslick');
+    $('.slider-nav', currentsliderr).slick('unslick')
+
+    sliderInit(currentsliderr);
+
+
   });
-});  
-var switchImage = function(newImageSrc, newImage, mainImageDomEl) {
-  jQuery(mainImageDomEl).attr('src', newImageSrc);
-  $(mainImageDomEl).parents('a').attr('href', newImageSrc);
-};
+  
+  function sliderInit(currentSlider) {
+    
+   var sliderIndex = currentSlider.index();
+   $('.slider-for', currentSlider).slick({
+     infinite: true,
+     speed: 300,
+     slidesToShow: 2,
+     slidesToScroll: 1,
+     asNavFor: '.slider-wrapper--' + sliderIndex + ' .slider-nav',
+     responsive: [
+     {
+       breakpoint: 990,
+       settings: {
+         slidesToShow: 2
+       }
+     },
+     {
+       breakpoint: 540,
+       settings: {
+         slidesToShow: 1
+       }
+     }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+    ]
+    });
+    
+    
+    $('.slider-nav', currentSlider).slick({
+     slidesToShow: 5,
+     slidesToScroll: 1,
+     asNavFor: '.slider-wrapper--' + sliderIndex + ' .slider-for',
+     vertical: true,
+     verticalSwiping: true,
+     focusOnSelect: true
+    });
+    
+    $('.slick-up', currentSlider).on('click', function(){
+      $('.slider-wrapper--' + sliderIndex + ' .slider-nav').slick("slickPrev");
+    });
+    $('.slick-down', currentSlider).on('click', function(){
+      $('.slider-wrapper--' + sliderIndex + ' .slider-nav').slick("slickNext");
+    });
+     
+  }
+  
+
+  function setHeight(slider) {
+    sliderHeight = $('.product-single__photos', slider).innerHeight();
+    $('.thumbnails-wrapper').css({'height': sliderHeight,'overflow':'hidden'}); 
+  };
+
+  setHeight($activeSlider);
+  
+  $(window).resize(function() {
+    setHeight();
+  });
+}); 
+
+
+

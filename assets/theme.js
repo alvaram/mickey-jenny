@@ -2995,54 +2995,5 @@ $('.collection-slider-for').slick({
       }
    ]
 });
-$('.slider-for').slick({
-  infinite: true,
-  speed: 300,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  asNavFor: '.slider-nav',
-  responsive: [
-    {
-      breakpoint: 990,
-      settings: {
-        slidesToShow: 2
-      }
-    },
-    {
-      breakpoint: 540,
-      settings: {
-        slidesToShow: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-});
-$('.slider-nav').slick({
-   slidesToShow: 5,
-   slidesToScroll: 1,
-   asNavFor: '.slider-for',
-   vertical: true,
-   verticalSwiping: true,
-   focusOnSelect: true
-});
-$('.slick-up').on('click', function(){
-    $('.slider-nav').slick("slickPrev");
-});
-$('.slick-down').on('click', function(){
-    $('.slider-nav').slick("slickNext");
-});
-// $('.product-single__thumbnails').css({'height': $('#get-slider-container').height(),'overflow':'hidden'});
-$(document).ready(function() {
-  function setHeight() {
-    sliderHeight = $('#get-slider-container').innerHeight();
-    $('.thumbnails-wrapper').css({'height': sliderHeight,'overflow':'hidden'});
-  };
-  setHeight();
-  
-  $(window).resize(function() {
-    setHeight();
-  });
-});
+
 $(".additional-checkout-button--paypal-express").prepend( "Continue with " );

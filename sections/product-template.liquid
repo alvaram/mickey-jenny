@@ -54,11 +54,64 @@
       {%- assign enable_zoom = false -%}
   {% endcase %}
 
-  <div class="grid product-single">
+  <div class="grid product-single grid--slider">
 
+
+    {% assign options = product.options_with_values | map: 'name' %}
+    
+    {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
+    {% assign featured_alt = product.selected_or_first_available_variant.option1 %}
+    
+    {% if options contains "Colors" %}
+  {% for value in product.options_with_values[0].values  %}
+    
+      <div class="slider-wrapper slider-wrapper--{{ forloop.index0 }} {% unless featured_alt == value %}slider-wrapper--hidden{% endunless %}" data-color="{{ value }}">
+        <div id="get-slider-container" class="grid__item product-single__photos large-up--four-sixths slider-for">
+        {% for image in product.images %}
+          {% if image.alt == value %}
+            {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
+            {% capture img_class %}product-featured-img{% endcapture %}
+            {% capture zoom_img_id %}FeaturedImageZoom-{{ section.id }}-{{ image.id }}{% endcapture %}
+            {% capture img_wrapper_id %}{{ zoom_img_id }}-wrapper{% endcapture %}
+            {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+              <div class="product-single__photo ratio-container">
+                <img class="feature-row__image {{ img_class }}"
+                     src="{{ image | img_url: '300x300' }}"
+                     data-src="{{ img_url }}"
+                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                     data-aspectratio="{{ image.aspect_ratio }}"
+                     data-sizes="auto"
+                     alt="{{ image.alt | escape }}">
+              </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    
+      <div class="grid__item large-up--one-sixth slider-thumbnails-container large-down--hide">
+        <button type="button" data-role="none" class="slick-up slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+        {% if product.images.size > 1 %}
+            <div class="product-single__thumbnails thumbnails-wrapper slider-nav">
+                {% assign featured_alt = product.selected_or_first_available_variant.option1 %}
+                {% for image in product.images %}
+                {% if image.alt == value  %}
+                  <div class="product-single__thumbnails-item ratio-container js">
+                      <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 3 }}" alt="{{ image.alt | escape }}">
+                  </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+          {% endif %}
+        <button type="button" data-role="none" class="slick-down slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
+      </div>
+      </div> <!--end .slider-wrapper-->
+    
+   
+    {% endfor %}
+    {% else %}
+    
     <div id="get-slider-container" class="grid__item product-single__photos large-up--four-sixths slider-for">
-      {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
-      {% assign featured_alt = product.selected_or_first_available_variant.option1 %}
       {% for image in product.images %}
       {% if image.alt == featured_alt or image == featured_image %}
         {% capture img_id %}FeaturedImage-{{ section.id }}-{{ image.id }}{% endcapture %}
@@ -99,12 +152,15 @@
     <button type="button" data-role="none" class="slick-down slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
     </div>
     
+    
+    {% endif %}
+    
     <div class="grid__item large-up--one-sixth product-single-container">
       <div class="product-single__meta">
 
         <h2 itemprop="name" class="h4 product-single__title-collection">{{ product.type }},</h2>
         <h1 itemprop="name" class="h3 product-single__title">{{ product.title }}</h1>
-
+        <div class="wish-list"><a href="#">{% include 'icon-heart' %}</a></div>
         {% if section.settings.show_vendor %}
           <p itemprop="brand" class="product-single__vendor">{{ product.vendor }}</p>
         {% endif %}
@@ -141,7 +197,7 @@
           </p>
 
           <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-form product-form-{{ section.id }}{% unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}" data-section="{{ section.id }}">
-            
+  
             {% unless product.options.size == 1 and product.variants[0].title == 'Default Title' %}
               {% for option in product.options_with_values %}
                 <div class="selector-wrapper js product-form__item">
