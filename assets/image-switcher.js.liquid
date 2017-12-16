@@ -1,6 +1,6 @@
 jQuery(document).ready(function($){
   
-  var myRadio = $("input[name='Colors']:checked").val();
+  var myRadio = $("input[name='Colors']:checked, input[name='Color']:checked").val();
 
   var $colorsFieldset = $('fieldset[name="Colors"]');
   var $sliderWrappers = $('.slider-wrapper');

@@ -62,7 +62,7 @@
     {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
     {% assign featured_alt = product.selected_or_first_available_variant.option1 %}
     
-    {% if options contains "Colors" %}
+    {% if options contains "Colors" or "Color" %}
   {% for value in product.options_with_values[0].values  %}
     
       <div class="slider-wrapper slider-wrapper--{{ forloop.index0 }} {% unless featured_alt == value %}slider-wrapper--hidden{% endunless %}" data-color="{{ value }}">
@@ -246,7 +246,9 @@
                 </div>
               {% endfor %}
             {% endunless %}
-
+            {% if product.options contains 'Sizes' or 'Size' %}
+              <a href="#size-chart" title="View size chart" class="size-chart-btn">View size chart</a>
+            {% endif %}
             <select name="id" id="ProductSelect-{{ section.id }}" data-section="{{ section.id }}" class="product-form__variants no-js">
               {% for variant in product.variants %}
                 {% if variant.available %}
@@ -298,6 +300,11 @@
   </div>
 </div>
 
+<div id="size-chart" class="size-chart-container grid page-width mfp-hide">
+  <div class="medium-up--one-whole">
+    {{ pages.size-guide.content }}
+  </div>
+</div>
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">

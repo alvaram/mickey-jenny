@@ -2997,3 +2997,7 @@ $('.collection-slider-for').slick({
 });
 
 $(".additional-checkout-button--paypal-express").prepend( "Continue with " );
+$('.size-chart-btn').magnificPopup({
+  type:'inline',
+  midClick: true
+});
