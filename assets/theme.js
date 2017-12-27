@@ -1318,6 +1318,7 @@ theme.Slideshow = (function() {
       accessibility: true,
       arrows: true,
       dots: true,
+      infinite: false,
       fade: true,
       draggable: true,
       touchThreshold: 20,
@@ -3000,4 +3001,9 @@ $(".additional-checkout-button--paypal-express").prepend( "Continue with " );
 $('.size-chart-btn').magnificPopup({
   type:'inline',
   midClick: true
+});
+
+$(function(){
+  var $productDesc = $('.intro-description').clone();
+  $('.product-duplicate__description').html($productDesc);
 });

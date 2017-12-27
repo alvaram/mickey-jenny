@@ -7,7 +7,7 @@
 {% endif %}
 
 
-  <a href="{% if collection.products == empty %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
+  <a href="{% if collection.products == empty %}#{% else %}{% cycle '/collections#weekend-escape', '/collections#date-night', '/collections#not-your-gym-clothes', '/collections/originals' %}{% endif %}" class="collection-grid-item__link">
     {% unless collection_image == blank %}
       <div class="collection-grid-item__overlay box ratio-container lazyload js"
          data-bgset="{% include 'bgset', image: collection_image %}"

@@ -70,35 +70,35 @@
       {% assign grid_item_width = '' %}
   {%- assign max_height = 700 -%}
     {% when '2' %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-half' %}
+      {% assign grid_item_width = 'medium-up--one-half' %}
       {%- assign max_height = 530 -%}
     {% when '3' %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-third' %}
+      {% assign grid_item_width = 'small--whole medium-up--one-third' %}
       {%- assign max_height = 345 -%}
     {% when '4' %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-quarter' %}
+      {% assign grid_item_width = 'small--whole medium-up--one-third' %}
   {%- assign max_height = 250 -%}
     {% when '5' %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-fifth' %}
+      {% assign grid_item_width = 'small--whole medium-up--one-third' %}
   {%- assign max_height = 195 -%}
     {% when '6' %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-sixth' %}
+      {% assign grid_item_width = 'small--whole medium-up--one-third' %}
   {%- assign max_height = 195 -%}
     {% else %}
-      {% assign grid_item_width = 'small--one-half medium-up--one-quarter' %}
+      {% assign grid_item_width = 'small--whole medium-up--one-third' %}
   {%- assign max_height = 195 -%}
   {% endcase %}
 
 
   {% capture related_items %}
-<div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+<div class="collection-slider-for">
 
   {% for product in collection.products %}
   {% unless product.handle == current_product.handle %}
   {% unless same_vendor and current_product.vendor != product.vendor %}
   {% unless same_type and current_product.type != product.type %}
   <div class="grid__item {{ grid_item_width }}">
-    {% include 'product-card-grid', max_height: max_height %}
+    {% include 'related-product-card-grid', max_height: max_height %}
   </div>
   {% assign counter = counter | plus: 1 %}
   {% if counter == break_at %}

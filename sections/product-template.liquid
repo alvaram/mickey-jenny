@@ -89,7 +89,7 @@
       </div>
     
       <div class="grid__item large-up--one-sixth slider-thumbnails-container large-down--hide">
-        <button type="button" data-role="none" class="slick-up slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+        <!-- <button type="button" data-role="none" class="slick-up slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button> -->
         {% if product.images.size > 1 %}
             <div class="product-single__thumbnails thumbnails-wrapper slider-nav">
                 {% assign featured_alt = product.selected_or_first_available_variant.option1 %}
@@ -103,7 +103,7 @@
 
             </div>
           {% endif %}
-        <button type="button" data-role="none" class="slick-down slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
+        <!-- <button type="button" data-role="none" class="slick-down slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button> -->
       </div>
       </div> <!--end .slider-wrapper-->
     
@@ -157,7 +157,7 @@
     
     <div class="grid__item large-up--one-sixth product-single-container">
       <div class="product-single__meta">
-
+        <div class="product-duplicate__description rte large-up--hide" itemprop="description"></div>
         <h2 itemprop="name" class="h4 product-single__title-collection">{{ product.type }},</h2>
         <h1 itemprop="name" class="h3 product-single__title">{{ product.title }}</h1>
         <div class="wish-list"><a href="#">{% include 'icon-heart' %}</a></div>
@@ -292,13 +292,11 @@
   </div>
 </div>
 
-<div class="grid page-width">
-  <div class="medium-up--one-whole">
-    <div class="product-single__description rte" itemprop="description">
-      {{ product.description }}
-    </div>
-  </div>
+
+<div class="product-single__description rte" itemprop="description">
+  {{ product.description }}
 </div>
+
 
 <div id="size-chart" class="size-chart-container grid page-width mfp-hide">
   <div class="medium-up--one-whole">

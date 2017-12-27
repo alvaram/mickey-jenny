@@ -24,6 +24,15 @@
                 </td>
                 <td class="cart__meta small--text-left cart-flex-item">
                   <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">{{ 'cart.general.remove' | t }}</a>
+                  <div class="list-view-item__title">
+                    <a href="{{ item.url }}">
+                      <strong>I'm {{ item.product.type }}</strong>,<br>
+                      {{ item.product.title }}
+                      {% if item.quantity > 1 %}
+                        <span class="medium-up--hide"><span class="visually-hidden">{{ 'cart.label.quantity' | t }}</span>(x{{ item.quantity }})</span>
+                      {% endif %}
+                    </a>
+                  </div>
                   <div class="cart__price-wrapper">
                     {% if item.original_line_price != item.line_price %}
                       <div class="cart-item__original-price"><s>{{ item.original_line_price | money }}</s></div>
@@ -36,15 +45,6 @@
                     {% for discount in item.discounts %}
                       <div class="cart-item__discount">{{ discount.title }}</div>
                     {% endfor %}
-                  </div>
-                  <div class="list-view-item__title">
-                    <a href="{{ item.url }}">
-                      I'm {{ item.product.type }},
-                      {{ item.product.title }}
-                      {% if item.quantity > 1 %}
-                        <span class="medium-up--hide"><span class="visually-hidden">{{ 'cart.label.quantity' | t }}</span>(x{{ item.quantity }})</span>
-                      {% endif %}
-                    </a>
                   </div>
                   {% unless item.variant.title contains 'Default' %}
                     <div class="cart__meta-text">

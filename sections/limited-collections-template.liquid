@@ -35,12 +35,12 @@
         </div>
       </div>
 
+    {% else %}
       {% if collection.description != blank %}
         <div class="rte collection-description page-width">
           {{ collection.description }}
         </div>
       {% endif %}
-    {% else %}
       <div class="page-width">
         <div class="section-header shop-lifestyle-header">
           <h2 class="h1">{{ collection.title }}</h2>
