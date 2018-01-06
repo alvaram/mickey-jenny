@@ -85,6 +85,10 @@
   {% endif %}
 
   {{ content_for_header }}
+
+  {% if settings.app_wk_enabled %}
+    {% include 'appmate-wishlist-king' %}
+  {% endif %}
 </head>
 
 <body class="template-{{ template | split: '.' | first }}">
@@ -126,5 +130,9 @@
 
   {% include 'sweettooth-tab-widget' %}
 
+
+{% include 'swymSnippet' %}
+
+{% include 'back-in-stock-helper' %}
 </body>
 </html>

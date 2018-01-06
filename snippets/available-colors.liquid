@@ -44,11 +44,10 @@
   {% endcomment %}
 
   {% if colors.size > 0 %}
-  
 
   <small style="display:block;">
     {% for color in colors %}
-      <img src="{{ color | downcase | append: '.png' | asset_url }}" alt="{{ color }}" width="10" height="10" class="collection-swtaches"/>
+      <img src="{{ color | downcase | handle | append: '.png' | asset_url }}" alt="{{ color }}" width="10" height="10" class="collection-swtaches"/>
     {% endfor %}
   </small>
 

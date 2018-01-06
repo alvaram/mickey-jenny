@@ -146,7 +146,7 @@
         {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
       {% endcase %}
 
-      <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+      <div class="grid {% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
           <div class="grid__item grid__item--{{section.id}} {% cycle grid_item_width, grid_item_width, 'medium-up--one-whole', grid_item_width, grid_item_width, 'medium-up--one-whole', grid_item_width, grid_item_width, 'medium-up--one-whole' %}">
             {% include 'product-card-grid', max_height: max_height %}

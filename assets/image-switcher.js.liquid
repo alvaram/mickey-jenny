@@ -8,8 +8,8 @@ jQuery(document).ready(function($){
 
   $('.slider-wrapper:not(.slider-wrapper--hidden) .feature-row__image').addClass('lazyload lazypreload');
 
-  $("iframe[data-color!=" + myRadio + "]").parent(".video-wrapper").css({'display': 'none'});
-  $(".product-texture-image[data-color!=" + myRadio + "]").css({'display': 'none'});
+  $('iframe[data-color!="' + myRadio + '"]').parent(".video-wrapper").css({'display': 'none'});
+  $('.product-texture-image[data-color!="' + myRadio + '"]').css({'display': 'none'});
   
   $sliderWrappers.each(function(index) {    
     $currentSlider = $(this);
@@ -24,18 +24,18 @@ jQuery(document).ready(function($){
     var selectedColor = event.target.value;
     $(".slider-wrapper").addClass('slider-wrapper--hidden');
 
-    $("iframe[data-color!=" + selectedColor + "]").parent(".video-wrapper").css({'display': 'none'});
-    $(".product-texture-image[data-color!=" + selectedColor + "]").css({'display': 'none'});
+    $('iframe[data-color!="' + selectedColor + '"]').parent(".video-wrapper").css({'display': 'none'});
+    $('.product-texture-image[data-color!="' + selectedColor + '"]').css({'display': 'none'});
 
-    $(".slider-wrapper[data-color=" + selectedColor + "] .feature-row__image").addClass('lazyload lazypreload');
+    $('.slider-wrapper[data-color="' + selectedColor + '"] .feature-row__image').addClass('lazyload lazypreload');
 
-    $(".slider-wrapper[data-color=" + selectedColor + "]").removeClass('slider-wrapper--hidden');
+    $('.slider-wrapper[data-color="' + selectedColor + '"]').removeClass('slider-wrapper--hidden');
 
-    $("iframe[data-color=" + selectedColor + "]").parent(".video-wrapper").css({'display': 'block'});
-    $(".product-texture-image[data-color=" + selectedColor + "]").css({'display': 'block'});
+    $('iframe[data-color="' + selectedColor + '"]').parent(".video-wrapper").css({'display': 'block'});
+    $('.product-texture-image[data-color="' + selectedColor + '"]').css({'display': 'block'});
     
     var sliderIndex = $('.slider-wrapper:not(.slider-wrapper--hidden)').index();
-    var currentsliderr = $(".slider-wrapper[data-color=" + selectedColor + "]");
+    var currentsliderr = $('.slider-wrapper[data-color="' + selectedColor + '"]');
     $('.slider-for', currentsliderr).slick('unslick');
     $('.slider-nav', currentsliderr).slick('unslick')
 

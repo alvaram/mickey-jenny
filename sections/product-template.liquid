@@ -160,7 +160,10 @@
         <div class="product-duplicate__description rte large-up--hide" itemprop="description"></div>
         <h2 itemprop="name" class="h4 product-single__title-collection">{{ product.type }},</h2>
         <h1 itemprop="name" class="h3 product-single__title">{{ product.title }}</h1>
-        <div class="wish-list"><a href="#">{% include 'icon-heart' %}</a></div>
+        <div class="wish-list">
+          <!-- <a href="#">{% include 'icon-heart' %}</a> -->
+          <!-- include 'wishlist-button-product' with '{{ product.id }}' -->
+        </div>
         {% if section.settings.show_vendor %}
           <p itemprop="brand" class="product-single__vendor">{{ product.vendor }}</p>
         {% endif %}
