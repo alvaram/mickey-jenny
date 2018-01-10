@@ -12,7 +12,7 @@
 {% if section.settings.layout == 'grid' %}
   {%- assign limit = section.settings.grid | times: section.settings.rows -%}
 {% else %}
-  {%- assign limit = 16 -%}
+  {%- assign limit = 40 -%}
 {% endif %}
 
 {% paginate collection.products by limit %}
@@ -146,7 +146,7 @@
         {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
       {% endcase %}
 
-      <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+      <div class="grid {% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
           <div class="grid__item grid__item--{{section.id}} {% cycle grid_item_width, grid_item_width, 'medium-up--one-whole', grid_item_width, grid_item_width, 'medium-up--one-whole', grid_item_width, grid_item_width, 'medium-up--one-whole' %}">
             {% include 'product-card-grid', max_height: max_height %}
@@ -318,6 +318,54 @@
           {
             "value": "8",
             "label": "8"
+          },
+          {
+            "value": "9",
+            "label": "9"
+          },
+          {
+            "value": "10",
+            "label": "10"
+          },
+          {
+            "value": "11",
+            "label": "11"
+          },
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "13",
+            "label": "13"
+          },
+          {
+            "value": "14",
+            "label": "14"
+          },
+          {
+            "value": "15",
+            "label": "15"
+          },
+          {
+            "value": "16",
+            "label": "16"
+          },
+          {
+            "value": "17",
+            "label": "17"
+          },
+          {
+            "value": "18",
+            "label": "18"
+          },
+          {
+            "value": "19",
+            "label": "19"
+          },
+          {
+            "value": "20",
+            "label": "20"
           }
         ]
       },

@@ -1316,7 +1316,7 @@ theme.Slideshow = (function() {
 
     this.settings = {
       accessibility: true,
-      arrows: true,
+      arrows: false,
       dots: true,
       infinite: false,
       fade: true,

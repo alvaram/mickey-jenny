@@ -67,6 +67,11 @@
             {{ block.settings.button_label | escape }}
           </a>
         {% endif %}
+
+        {% if block.settings.show_referral %}
+          <script src="https://conjured.co/shopify/referral/widget.js?shop=mickey-jenny.myshopify.com&cmp=420"></script>
+          <div id="conjured_referral"></div>
+        {% endif %}
       </div>
     </div>
     {% endfor %}
@@ -136,7 +141,13 @@
             "id": "show_newsletter",
             "type": "checkbox",
             "label": "Show newsletter form",
-            "default": true
+            "default": false
+          },
+          {
+            "id": "show_referral",
+            "type": "checkbox",
+            "label": "Show referral form",
+            "default": false
           }
         ]
       }

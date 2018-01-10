@@ -3545,6 +3545,9 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
     margin-bottom: 10px;
     &:last-child {
       margin-bottom: 5px;
+      .item-option-name + span {
+        padding-right: 18px;
+      }
     }
   }
   .item-option-name {
@@ -3552,7 +3555,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
     @include media-query($medium-up) {
       /*min-width: 80px;*/
       + span {
-        padding-right: 10px;
+        padding-right: 5px;
       }
     }
   }
@@ -3562,7 +3565,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   @include media-query($medium-up) {
     /*min-width: 80px;*/
     + span {
-      padding-right: 10px;
+      /*padding-right: 10px;*/
     }
   }
 }
@@ -6271,7 +6274,11 @@ $toolbar-height-small: 46px;
 }
 .crafted-cali .page-width {
   max-width: 1170px;
-  padding: 20px 55px;
+  padding-left: 22px;
+  padding-right: 22px;
+  @include media-query($medium-up) {
+    padding: 20px 55px;
+  }
 }
 .locally-crafted {
   img {

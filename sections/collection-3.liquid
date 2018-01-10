@@ -27,7 +27,7 @@
   <div class="grid grid--view-items shop-lifestyle-container">
 
     {% for product in collection.products limit: product_limit %}
-      <div class="grid__item grid__item--{{section.id}} {% cycle grid_item_width, grid_item_width, 'medium-up--one-whole', grid_item_width, grid_item_width %}">
+      <div class="grid__item grid__item--{{section.id}} {% cycle grid_item_width, grid_item_width, 'medium-up--one-whole', grid_item_width, grid_item_width, 'medium-up--one-whole', grid_item_width, grid_item_width, 'medium-up--one-whole' %}">
         {% include 'product-card-grid', max_height: max_height %}
       </div>
     {% else %}
