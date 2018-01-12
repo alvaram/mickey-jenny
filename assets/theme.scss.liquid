@@ -645,7 +645,7 @@ $slick-opacity-not-active: 0.25;
     height: 20px;
     display: block;
     background: {
-      image: url({{ "icon-l-arrow.svg" | asset_url }});
+      image: url({{ "icon-l-arrow-2.svg" | asset_url }});
       repeat: no-repeat;
       position: center center;
     }
@@ -695,7 +695,7 @@ $slick-opacity-not-active: 0.25;
     height: 20px;
     display: block;
     background: {
-      image: url({{ "icon-r-arrow.svg" | asset_url }});
+      image: url({{ "icon-r-arrow-2.svg" | asset_url }});
       repeat: no-repeat;
       position: center center;
     }
@@ -7466,4 +7466,11 @@ img.mfp-img {
   width: 17px;
   height: 16px;
   margin: 8px 0px 0 0;
+}
+
+.slick-next:before, .slick-prev:before  {
+  @include media-query($small) {
+    width: 15px;
+    height: 15px;
+  }
 }
