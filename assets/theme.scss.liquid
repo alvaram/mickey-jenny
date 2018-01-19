@@ -1747,7 +1747,9 @@ a {
     text-decoration: underline;
   }
 }
-
+:focus {
+  outline: 0;
+}
 /*================ Buttons ================*/
 .btn {
   @include user-select();
@@ -4861,7 +4863,7 @@ $color-slideshow-close-text: #000;
   width: 100%;
   background-repeat: no-repeat;
   background-position: top center;
-  background-color: #f6ebe9;
+  background-color: #ffffff;
   background-size: auto 100%;
   z-index: $z-index-slideshow-image;
 
@@ -7467,7 +7469,19 @@ img.mfp-img {
   height: 16px;
   margin: 8px 0px 0 0;
 }
-
+.mobile-nav__item a.wk-link {
+  display: block;
+  width: 100%;
+  padding: 15px 30px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.mobile-nav__item a.wk-link .wk-icon {
+  display: none;
+}
+.mobile-nav__item .site-header__search-toggle {
+  float: none;
+}
 .slick-next:before, .slick-prev:before  {
   @include media-query($small) {
     width: 15px;
